@@ -2,11 +2,11 @@ const baseUrl = 'http://localhost:9000';
 
 const authEndpoints = {
     'profile' : {
-        type: 'GET',
+        method: 'GET',
         url: '/profile'
     },
     'profile-update' : {
-        type: 'POST',
+        method: 'POST',
         url: '/profile/update',
         headers: {
             'X-Update-Id': '1234'
@@ -16,11 +16,11 @@ const authEndpoints = {
 
 const unAuthEndpoints = {
     'echo' : {
-        type: 'GET',
+        method: 'GET',
         url: '/echo?version={version}&locale={locale}'
     },
     'status' : {
-        type: 'GET',
+        method: 'GET',
         url: '/status',
         responseType: 'json'
     }
