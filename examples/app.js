@@ -20,6 +20,9 @@ $olar.executeAuth('profile-update',
     {   
         data: { /* Post Data */
             name: ['Sumeet Sarkar']
+        },
+        headers: { /* Headers */
+            'X-Auth-Dynamic': 'some-dynamic-data'
         }
     },
     (data) => /* Success callback */ console.log(data),
