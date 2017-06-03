@@ -10,13 +10,11 @@ $olar.setBaseUrl(baseUrl)
     .setAuthConfig(authConfig)
     .setUnAuthConfig(unAuthConfig);
 
-// load full config at once from js object
+// load full config at once from json
 $olar.loadConfig(solarConfig);
 
 // to display all configs
-console.log('Solar Config ---------------');
 $olar.info();
-console.log('----------------------------');
 
 // Making Authenticated API requests
 $olar.executeAuth('profile',
