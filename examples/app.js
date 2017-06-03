@@ -1,13 +1,13 @@
 /**
  * Demo usage of $solar lib
  */ 
-$olar.setBaseUrl(baseUrl);
-$olar.setAuthenticatedEndpoints(authEndpoints);
-$olar.setUnAuthenticatedEndpoints(unAuthEndpoints);
-$olar.setCommonHeaders(commonHeaders);
-$olar.setAuthHeaders(authHeaders);
-$olar.setAuthConfig(authConfig);
-$olar.setUnAuthConfig(unAuthConfig);
+$olar.setBaseUrl(baseUrl)
+    .setAuthenticatedEndpoints(authEndpoints)
+    .setUnAuthenticatedEndpoints(unAuthEndpoints)
+    .setCommonHeaders(commonHeaders)
+    .setAuthHeaders(authHeaders)
+    .setAuthConfig(authConfig)
+    .setUnAuthConfig(unAuthConfig);
 
 // Making Authenticated API requests
 $olar.executeAuth('profile',
