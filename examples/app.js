@@ -52,3 +52,24 @@ $olar.executeUnAuth('status',
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );
+
+$olar.request({
+        /* Method */
+        method: 'GET',
+        /* Url */
+        url: '/api/app/echo?version={version}&locale={locale}',
+        /* Query Params */
+        params: { 
+            version: 1234,
+            locale: 'en'
+        },
+        /* Headers */
+        headers: {
+            'X-App-Name': 'Demo $olar',
+            'X-App-Key' : 'myappkey',
+            'Content-Type': 'application/json'
+        }
+    },
+    (data) => /* Success callback */ console.log(data),
+    (err) => /* Error callback */ console.error(err)
+);
