@@ -11,34 +11,34 @@ $olar.setUnAuthConfig(unAuthConfig);
 
 // Making Authenticated API requests
 $olar.executeAuth('profile',
-    {}, /* No Post Data */
-    {}, /* No Query Params */
+    {}, /* No Post Data */ /* No Query Params */
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err));
 
 // Making Authenticated API requests
 $olar.executeAuth('profile-update',
-    {   /* Post Data */
-        name: ['Sumeet Sarkar']
-    }, 
-    {}, /* No Query Params */
+    {   
+        data: { /* Post Data */
+            name: ['Sumeet Sarkar']
+        }
+    },
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err));
 
 // Making Unauthenticated API requests
 $olar.executeUnAuth('echo',
-    {}, /* No Post Data */
-    {   /* Query Params */
-        version: 1234,
-        locale: 'en'
+    {   
+        params: { /* Query Params */
+            version: 1234,
+            locale: 'en'
+        }
     },
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );
 
 $olar.executeUnAuth('status',
-    {}, /* No Post Data */
-    {},   /* No Query params */
+    {}, /* No Post Data */ /* No Query params */
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );
