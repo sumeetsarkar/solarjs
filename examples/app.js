@@ -1,6 +1,7 @@
 /**
  * Demo usage of $solar lib
  */ 
+// chain addition of solar config
 $olar.setBaseUrl(baseUrl)
     .setAuthenticatedEndpoints(authEndpoints)
     .setUnAuthenticatedEndpoints(unAuthEndpoints)
@@ -8,6 +9,14 @@ $olar.setBaseUrl(baseUrl)
     .setAuthHeaders(authHeaders)
     .setAuthConfig(authConfig)
     .setUnAuthConfig(unAuthConfig);
+
+// load full config at once from js object
+$olar.loadConfig(solarConfig);
+
+// to display all configs
+console.log('Solar Config ---------------');
+$olar.info();
+console.log('----------------------------');
 
 // Making Authenticated API requests
 $olar.executeAuth('profile',
