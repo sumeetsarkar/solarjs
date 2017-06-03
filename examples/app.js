@@ -1,5 +1,5 @@
 /**
- * Demo for using $solar lib
+ * Demo usage of $solar lib
  */ 
 $olar.setBaseUrl(baseUrl);
 $olar.setAuthenticatedEndpoints(authEndpoints);
@@ -10,37 +10,35 @@ $olar.setAuthConfig(authConfig);
 $olar.setUnAuthConfig(unAuthConfig);
 
 // Making Authenticated API requests
-$olar.executeAuth('api1',
+$olar.executeAuth('profile',
     {}, /* No Post Data */
     {}, /* No Query Params */
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err));
 
 // Making Authenticated API requests
-$olar.executeAuth('api2',
+$olar.executeAuth('profile-update',
     {   /* Post Data */
-        foo: ['bar'],
-        baz: null
+        name: ['Sumeet Sarkar']
     }, 
     {}, /* No Query Params */
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err));
 
 // Making Unauthenticated API requests
-$olar.executeUnAuth('api3',
+$olar.executeUnAuth('echo',
     {}, /* No Post Data */
     {   /* Query Params */
-        version: 1234
+        version: 1234,
+        locale: 'en'
     },
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );
 
-$olar.executeUnAuth('api4',
+$olar.executeUnAuth('status',
     {}, /* No Post Data */
-    {   /* Query params */
-        locale: 'en'
-    },
+    {},   /* No Query params */
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );

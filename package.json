@@ -1,0 +1,29 @@
+{
+  "name": "solarjs",
+  "version": "1.0.0",
+  "description": "A generic configurable library for making XHR requests",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start-example": "NODE_PORT=9000 node examples/index"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/sumeetsarkar/solarjs.git"
+  },
+  "keywords": [
+    "Solar",
+    "XHR",
+    "Promises"
+  ],
+  "author": "Sumeet Sarkar",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/sumeetsarkar/solarjs/issues"
+  },
+  "homepage": "https://gitlab.com/sumeetsarkar/solarjs#README",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "express": "^4.15.3",
+    "morgan": "^1.8.2"
+  }
+}
