@@ -2,16 +2,13 @@
 
 > Solar is a fast, small, and highly configurable JavaScript XHR wrapper library.
 
-The aim is to keep all the XHR requests in a webapp manageable and configurable.
-Solar allows grouping of requests into authenticated and unauthenticated configs under a common baseUrl.
-Each config can specify basePaths and additional headers.
-Along with this configs can be added for Common headers, request specific headers and responseTypes.
+The aim is to keep all the XHR requests in a webapp manageable and configurable. Solar allows grouping of requests into authenticated and unauthenticated configs under a common baseUrl. Each config can specify basePaths and additional headers. In addition, configs can be added for Common headers, request specific headers and responseTypes.
 
-Once the configuration is done, Solar can be used to make XHR requests with just the api name.
-If needed additional parameter payload can be passed in too, apart from the regular success and error callbacks.
+Once the configuration is done, Solar can be used to make XHR requests with just the api name. If needed additional parameter payload can be passed in too, apart from the regular success and error callbacks.
 
 However, Solar can also be used to send XHR requests wihtout any configs for standalone requests.
 
+### Limitations for now
 Currently supports GET, POST, PUT
 
 ### Upcoming features
@@ -20,23 +17,18 @@ Currently supports GET, POST, PUT
 2. Custom configurable request groups, apart from Auth and Unauth groups
 
 ## Including Solar
-
 Solar is available only as standalone library from github repo. No CDN support as of now.
 
 ### Browser
-
 #### Script tag
 
 ```html
 <script src="<your-path>/solar.min.js"></script>
 ```
 
-### How To Use Solar
-
-[Solar Lib](lib/solar.js)
+### How To Use [Solar](lib/solar.js)
 
 #### Chain addition of solar config
-
 ```js
 $olar.setBaseUrl(baseUrl)
     .setAuthenticatedEndpoints(authEndpoints)
@@ -48,26 +40,23 @@ $olar.setBaseUrl(baseUrl)
 ```
 
 #### Or Load full config at once from json
-
 ```js
 $olar.loadConfig(solarConfig);
 ```
 
 ### Solar config declaration styles
-[Individual Config](examples/config.js)
-[Single JSON config](examples/config-v2.js)
+1. [Individual Config](examples/config.js)
+2. [Single JSON config](examples/config-v2.js)
 
 ### Solar example usage
 [Example usage in app.js](examples/app.js)
 
 ### Simple Solar call once config is done
-
 ```js
 $olar.executeUnAuth('status');
 ```
 
 ### Making Authenticated API requests
-
 As per configuration, Solar picks up the following -
 Http Method type
 Auth specific/ common/ endpoint specific headers
@@ -92,7 +81,6 @@ $olar.executeAuth('profile-update',
 ```
 
 ### Making Unauthenticated API requests
-
 As per configuration, Solar picks up the following -
 Http Method type
 Common/ endpoint specific headers
@@ -114,8 +102,7 @@ $olar.executeUnAuth('echo',
 );
 ```
 
-### Bypassing all configs and using Solar to for XHR
-
+### Bypassing all configs and using Solar to make XHR
 ```js
 $olar.request({
         /* Method */
@@ -140,7 +127,6 @@ $olar.request({
 ```
 
 #### To display all configs
-
 ```js
 $olar.info();
 ```
