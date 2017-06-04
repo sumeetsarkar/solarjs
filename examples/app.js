@@ -33,7 +33,8 @@ $olar.executeAuth('profile-update',
         }
     },
     (data) => /* Success callback */ console.log(data),
-    (err) => /* Error callback */ console.error(err));
+    (err) => /* Error callback */ console.error(err)
+);
 
 // Making Unauthenticated API requests
 $olar.executeUnAuth('echo',
@@ -52,6 +53,9 @@ $olar.executeUnAuth('status',
     (data) => /* Success callback */ console.log(data),
     (err) => /* Error callback */ console.error(err)
 );
+
+// call without any callbacks
+$olar.executeUnAuth('status');
 
 $olar.request({
         /* Method */
