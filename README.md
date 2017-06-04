@@ -58,12 +58,9 @@ $olar.executeUnAuth('status');
 
 ### Making Authenticated API requests
 As per configuration, Solar picks up the following -
-Http Method type
-Auth specific/ common/ endpoint specific headers
-Auth basePath
-XHR Reponse Type
-Additional headers can be passed on while sending the request
-executeAuth takes in payload, success callback and error callback
+Http Method type, Auth specific/ common/ endpoint specific headers, Auth basePath, XHR Reponse Type.
+Additional headers can be passed on while sending the request.
+Function executeAuth takes in payload, success callback and error callback
 
 ```js
 $olar.executeAuth('profile-update',
@@ -82,12 +79,9 @@ $olar.executeAuth('profile-update',
 
 ### Making Unauthenticated API requests
 As per configuration, Solar picks up the following -
-Http Method type
-Common/ endpoint specific headers
-UnAuth basePath
-XHR Reponse Type
-Additional headers can be passed on while sending the request
-executeUnAuth takes in payload, success callback and error callback
+Http Method type, Common/ endpoint specific headers, UnAuth basePath, XHR Reponse Type.
+Additional headers can be passed on while sending the request.
+Function executeUnAuth takes in payload, success callback and error callback
 
 ```js
 $olar.executeUnAuth('echo', 
