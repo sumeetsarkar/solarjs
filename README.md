@@ -134,5 +134,5 @@ $olar.info();
 ### Starting the example
     npm run start-example
 
-### Building minified Solar
+### Build Solar dist
     gulp
