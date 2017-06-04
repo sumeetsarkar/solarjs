@@ -2,9 +2,9 @@
 
 > Solar is a fast, small, and highly configurable JavaScript XHR wrapper library.
 
-The aim is to keep all the XHR requests in a webapp manageable and configurable. Solar allows grouping of requests into authenticated and unauthenticated configs under a common baseUrl. Each config can specify basePaths and additional headers. In addition, configs can be added for Common headers, request specific headers and responseTypes.
+The aim is to keep all the XHR requests in a webapp manageable and configurable. Solar allows grouping of requests into authenticated and unauthenticated configs or custom request groups under a common baseUrl. Each config can specify basePaths and additional headers. Custom Request groups can inherit from a parent auth or unauth config. In addition, configs can be added for Common headers, request specific headers and responseTypes.
 
-Once the configuration is done, Solar can be used to make XHR requests with just the api name. If needed additional parameter payload can be passed in too, apart from the regular success and error callbacks.
+Once the configuration is done, Solar can be used to make XHR requests with just the api name or group name if any. If needed additional parameter payload can be passed in as argument apart from the regular success and error callbacks.
 
 However, Solar can also be used to send XHR requests wihtout any configs for standalone requests.
 
@@ -14,7 +14,6 @@ Currently supports GET, POST, PUT
 ### Upcoming features
 1. Promises support
 2. HTTP Delete support
-2. Custom configurable request groups, apart from Auth and Unauth groups
 
 ## Including Solar
 Solar is available only as standalone library from github repo. No CDN support as of now.
@@ -34,9 +33,11 @@ $olar.setBaseUrl(baseUrl)
     .setAuthenticatedEndpoints(authEndpoints)
     .setUnAuthenticatedEndpoints(unAuthEndpoints)
     .setCommonHeaders(commonHeaders)
-    .setAuthHeaders(authHeaders)
     .setAuthConfig(authConfig)
-    .setUnAuthConfig(unAuthConfig);
+    .setUnAuthConfig(unAuthConfig)
+    .addCustomRequestGroup('group1', group1)
+    .addCustomRequestGroup('group2', group2)
+    .addCustomRequestGroup('group3', group3);
 ```
 
 #### Or Load full config at once from json
@@ -53,7 +54,9 @@ $olar.loadConfig(solarConfig);
 
 ### Simple Solar call once config is done
 ```js
+$olar.executeAuth('profile');
 $olar.executeUnAuth('status');
+$olar.executeCustom('group1', 'status');
 ```
 
 ### Making Authenticated API requests
@@ -96,7 +99,21 @@ $olar.executeUnAuth('echo',
 );
 ```
 
-### Bypassing all configs and using Solar to make XHR
+### Making Custom Group API requests
+Solar picks up the api from the group specified and merges group specific & common configs together.
+If the custom group inherits a parent group like auth or unauth, then corresponding parent's configs are merged.
+
+```js
+// call custom group api
+$olar.executeCustom('group1', 'status', 
+    {}, /* No Post Data */ /* No Query params */
+    (data) => /* Success callback */ console.log(data),
+    (err) => /* Error callback */ console.error(err)
+);
+```
+
+
+### Bypassing all configs and using Solar to make simple standalone XHR
 ```js
 $olar.request({
         /* Method */

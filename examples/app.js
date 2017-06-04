@@ -58,6 +58,7 @@ $olar.executeUnAuth('status',
 
 // call without any callbacks
 $olar.executeUnAuth('status');
+$olar.executeCustom('group1', 'status');
 
 // call custom group api
 $olar.executeCustom('group1', 'status', 
