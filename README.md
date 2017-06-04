@@ -135,4 +135,4 @@ $olar.info();
     npm run start-example
 
 ### Build Solar dist
-    gulp
+    npm run build

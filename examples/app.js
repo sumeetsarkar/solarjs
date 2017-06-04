@@ -6,9 +6,11 @@ $olar.setBaseUrl(baseUrl)
     .setAuthenticatedEndpoints(authEndpoints)
     .setUnAuthenticatedEndpoints(unAuthEndpoints)
     .setCommonHeaders(commonHeaders)
-    .setAuthHeaders(authHeaders)
     .setAuthConfig(authConfig)
-    .setUnAuthConfig(unAuthConfig);
+    .setUnAuthConfig(unAuthConfig)
+    .addCustomRequestGroup('group1', group1)
+    .addCustomRequestGroup('group2', group2)
+    .addCustomRequestGroup('group3', group3);
 
 // load full config at once from json
 $olar.loadConfig(solarConfig);
@@ -56,6 +58,27 @@ $olar.executeUnAuth('status',
 
 // call without any callbacks
 $olar.executeUnAuth('status');
+
+// call custom group api
+$olar.executeCustom('group1', 'status', 
+    {}, /* No Post Data */ /* No Query params */
+    (data) => /* Success callback */ console.log(data),
+    (err) => /* Error callback */ console.error(err)
+);
+
+// call custom group api
+$olar.executeCustom('group2', 'profile', 
+    {}, /* No Post Data */ /* No Query params */
+    (data) => /* Success callback */ console.log(data),
+    (err) => /* Error callback */ console.error(err)
+);
+
+// call custom group api
+$olar.executeCustom('group3', 'status', 
+    {}, /* No Post Data */ /* No Query params */
+    (data) => /* Success callback */ console.log(data),
+    (err) => /* Error callback */ console.error(err)
+);
 
 $olar.request({
         /* Method */

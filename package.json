@@ -4,6 +4,7 @@
   "description": "A generic configurable library for making XHR requests",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "gulp",
     "start-example": "NODE_PORT=9000 node examples/index"
   },
   "repository": {

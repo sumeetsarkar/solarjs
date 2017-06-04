@@ -17,6 +17,8 @@ app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, './index.html'));
 })
 
+// Middleware for Unauthenticated APIs --------------------------
+
 app.use('/api', (req, res, next) => {
     if (req.headers[X_APP_KEY]
             && req.headers[X_APP_KEY] === 'myappkey') {
@@ -26,6 +28,8 @@ app.use('/api', (req, res, next) => {
     res.status(400).json({error: 'Common headers missing'});
 });
 
+// Middleware for Authenticated APIs ----------------------------
+
 app.use('/api/auth', (req, res, next) => {
     if (req.headers[X_AUTH_USER_CODE]
             && req.headers[X_AUTH_USER_CODE] === 'myusercode') {
@@ -34,6 +38,8 @@ app.use('/api/auth', (req, res, next) => {
     }
     res.status(401).json({error: 'Unauthorized'});
 });
+
+// Authenticated APIs -------------------------------------------
 
 app.get('/api/auth/profile', (req, res) => {
     res.status(200).json({name: 'Sumeet'});
@@ -47,6 +53,8 @@ app.post('/api/auth/profile/update', (req, res) => {
     }
     res.status(400).json({error: 'missing update header/ post data'});
 });
+
+// Unauthenticated APIs -----------------------------------------
 
 app.get('/api/app/status', (req, res) => {
     res.status(200).json({status: 'success'});
@@ -63,4 +71,19 @@ app.get('/api/app/echo', (req, res) => {
     res.status(400).json({error: 'version query param missing'});
 });
 
+// API targetting custom request groups -------------------------
+
+app.get('/api/app/custom/v1/status', (req, res) => {
+    res.status(200).json({status: 'success'});
+});
+
+app.get('/api/auth/custom/v2/profile', (req, res) => {
+    res.status(200).json({name: 'Sumeet'});
+});
+
+app.get('/custom/v3/status', (req, res) => {
+    res.status(200).json({status: 'success'});
+});
+
+// Start server -------------------------------------------------
 app.listen(process.env.NODE_PORT);
