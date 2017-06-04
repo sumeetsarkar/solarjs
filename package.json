@@ -9,7 +9,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@gitlab.com/sumeetsarkar/solarjs.git"
+    "url": "git@github.com:sumeetsarkar/solarjs.git"
   },
   "keywords": [
     "Solar",
@@ -18,9 +18,9 @@
   "author": "Sumeet Sarkar",
   "license": "MIT",
   "bugs": {
-    "url": "https://gitlab.com/sumeetsarkar/solarjs/issues"
+    "url": "https://github.com/sumeetsarkar/solarjs/issues"
   },
-  "homepage": "https://gitlab.com/sumeetsarkar/solarjs#README",
+  "homepage": "https://github.com/sumeetsarkar/solarjs/blob/master/README.md",
   "dependencies": {
     "body-parser": "^1.17.2",
     "express": "^4.15.3",
