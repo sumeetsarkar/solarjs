@@ -2,7 +2,13 @@
 
 > Solar is a fast, small, and highly configurable JavaScript XHR wrapper library.
 
-The aim is to keep all the XHR requests in a webapp manageable and configurable. Solar allows grouping of requests into authenticated and unauthenticated configs or custom request groups under a common baseUrl. Each config can specify basePaths and additional headers. Custom Request groups can inherit from a parent auth or unauth config. In addition, configs can be added for Common headers, request specific headers and responseTypes.
+The main Idea is to have Request groups defined. So what are request groups? - Request groups are bundles of API endpoints which can define common basePaths, headers, responseTypes etc and other configs necessary under a group. A single API endpoint declares its method type, relative Url (bare minimum) and in addition specific headers or responseType, configs to override parent.
+
+### Key Features:
+1. By default provides two request groups - **Auth** and **UnAuth**
+2. **Custom Request Groups** to group APIs under group names to define group configs
+3. Custom Request Groups **can inherit** optionally from parent groups
+4. **JSON based Config declaration** or specific setup with method chaining
 
 Once the configuration is done, Solar can be used to make XHR requests with just the api name or group name if any. If needed additional parameter payload can be passed in as argument apart from the regular success and error callbacks.
 
